@@ -4,14 +4,14 @@
 #
 Name     : perl-multidimensional
 Version  : 0.014
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/multidimensional-0.014.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/multidimensional-0.014.tar.gz
 Summary  : 'disables multidimensional array emulation'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-multidimensional-lib
-Requires: perl-multidimensional-license
+Requires: perl-multidimensional-lib = %{version}-%{release}
+Requires: perl-multidimensional-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(B::Hooks::OP::Check::Install::Files)
 BuildRequires : perl(ExtUtils::Depends)
@@ -25,8 +25,8 @@ version 0.014
 %package dev
 Summary: dev components for the perl-multidimensional package.
 Group: Development
-Requires: perl-multidimensional-lib
-Provides: perl-multidimensional-devel
+Requires: perl-multidimensional-lib = %{version}-%{release}
+Provides: perl-multidimensional-devel = %{version}-%{release}
 
 %description dev
 dev components for the perl-multidimensional package.
@@ -35,7 +35,7 @@ dev components for the perl-multidimensional package.
 %package lib
 Summary: lib components for the perl-multidimensional package.
 Group: Libraries
-Requires: perl-multidimensional-license
+Requires: perl-multidimensional-license = %{version}-%{release}
 
 %description lib
 lib components for the perl-multidimensional package.
@@ -74,12 +74,12 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-multidimensional
-cp LICENSE %{buildroot}/usr/share/doc/perl-multidimensional/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-multidimensional
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-multidimensional/LICENSE
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -88,7 +88,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/multidimensional.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/multidimensional.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -96,8 +96,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/multidimensional/multidimensional.so
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/multidimensional/multidimensional.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-multidimensional/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-multidimensional/LICENSE
