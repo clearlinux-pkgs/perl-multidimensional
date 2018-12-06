@@ -4,7 +4,7 @@
 #
 Name     : perl-multidimensional
 Version  : 0.014
-Release  : 5
+Release  : 6
 URL      : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/multidimensional-0.014.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/multidimensional-0.014.tar.gz
 Summary  : 'disables multidimensional array emulation'
