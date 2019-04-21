@@ -4,7 +4,7 @@
 #
 Name     : perl-multidimensional
 Version  : 0.014
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/multidimensional-0.014.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/multidimensional-0.014.tar.gz
 Summary  : 'disables multidimensional array emulation'
@@ -27,6 +27,7 @@ Summary: dev components for the perl-multidimensional package.
 Group: Development
 Requires: perl-multidimensional-lib = %{version}-%{release}
 Provides: perl-multidimensional-devel = %{version}-%{release}
+Requires: perl-multidimensional = %{version}-%{release}
 
 %description dev
 dev components for the perl-multidimensional package.
