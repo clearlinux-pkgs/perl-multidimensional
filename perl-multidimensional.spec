@@ -4,7 +4,7 @@
 #
 Name     : perl-multidimensional
 Version  : 0.014
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/multidimensional-0.014.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/multidimensional-0.014.tar.gz
 Summary  : 'disables multidimensional array emulation'
@@ -100,5 +100,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/multidimensional/multidimensional.so
-/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/multidimensional.pm
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/auto/multidimensional/multidimensional.so
+/usr/lib/perl5/vendor_perl/5.30.2/x86_64-linux-thread-multi/multidimensional.pm
